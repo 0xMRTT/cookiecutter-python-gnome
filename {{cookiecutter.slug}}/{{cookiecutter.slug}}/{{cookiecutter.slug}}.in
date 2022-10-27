@@ -42,5 +42,5 @@ if __name__ == '__main__':
 
     sys.path.insert(1, "/usr/local/lib/python3.10/site-packages")
 
-    from {{cookiecutter.slug}} import main
-    sys.exit(main.main())
+    from {{cookiecutter.slug}} import cli
+    sys.exit(cli())
