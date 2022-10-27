@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+
+is_local = @local_build@
+
+if is_local:
+    # In the local use case, use {{cookiecutter.slug}} module from the sourcetree
+    sys.path.insert(1, '@PYTHON@')
+
+    # In the local use case the installed schemas go in <builddir>/data
+    os.environ["XDG_DATA_DIRS"] = '@SCHEMAS_DIR@:' + os.environ.get("XDG_DATA_DIRS", "")
+
+    shutil.copyfile(
+        os.path.join('@BUILD_DIR@', "{{cookiecutter.slug}}", "constants.py"),
+        os.path.join('@SOURCE_DIR@', "{{cookiecutter.slug}}", "constants.py")
+    )
+
+pkgdatadir = '@PKGDATA_DIR@'
+localedir = '@LOCALE_DIR@'
+
+sys.dont_write_bytecode = True
+
+signal.signal(signal.SIGINT, signal.SIG_DFL)
+gettext.install('{{cookiecutter.slug}}', localedir)
+
+locale.bindtextdomain('{{cookiecutter.slug}}', localedir)
+locale.textdomain('{{cookiecutter.slug}}')
+
+
+if __name__ == '__main__':
+    import gi
+
+    gi.require_version('Gtk', '4.0')
+    gi.require_version('Adw', '1')
+    gi.require_version('Xdp', '1.0')
+    gi.require_version('XdpGtk4', '1.0')
+    gi.require_version('Soup', '3.0')
+
+    from gi.repository import Gio
+    resource = Gio.Resource.load(
+        os.path.join(pkgdatadir, '{{cookiecutter.slug}}.gresource'))
+    Gio.Resource._register(resource)
+
+    sys.path.insert(1, "/usr/local/lib/python3.10/site-packages")
+
+    from {{cookiecutter.slug}} import main
+    sys.exit(main.main())
