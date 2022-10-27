@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="{{cookiecutter.app_path}}">
+
+    <file preprocess="xml-stripblanks">ui/preferences.ui</file>
+    <file preprocess="xml-stripblanks">ui/welcome.ui</file>
+    <file preprocess="xml-stripblanks">ui/window.ui</file>
+    <file>style.css</file>
+    <file>images/welcome.svg</file>
+    <file>images/welcome-dark.svg</file>
+  </gresource>
+  <gresource prefix="{{cookiecutter.app_path}}/icons/scalable/actions/">
+    
+  </gresource>
+</gresources>
