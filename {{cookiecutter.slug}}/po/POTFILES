@@ -1,0 +1,14 @@
+data/{{cookiecutter.app_id}}.desktop.in.in
+data/{{cookiecutter.app_id}}.appdata.xml.in.in
+data/{{cookiecutter.app_id}}.gschema.xml.in
+
+data/ui/preferences.blp
+data/ui/welcome.blp
+data/ui/window.blp
+
+{{cookiecutter.slug}}/ui/preferences.py
+{{cookiecutter.slug}}/ui/welcome.py
+{{cookiecutter.slug}}/ui/window.py
+
+{{cookiecutter.slug}}/cli.py
+{{cookiecutter.slug}}/main.py
