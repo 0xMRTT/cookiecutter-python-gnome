@@ -1,5 +1,9 @@
 {
     "slug": "app",
+    "app_name": "App",
     "app_path": "/com/example/app",
-    "app_id": "com.example.app"
+    "app_id": "com.example.app",
+    "description": "App description",
+    "developer": "App developer",
+    "contact": "contact@example.com"
 }

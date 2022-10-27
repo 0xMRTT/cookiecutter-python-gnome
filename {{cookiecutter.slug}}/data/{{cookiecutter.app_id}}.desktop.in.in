@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name={{cookiecutter.app_name}}
+Exec={{cookiecutter.slug}}
+Icon=@APP_ID@
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true
